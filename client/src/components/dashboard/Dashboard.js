@@ -19,7 +19,7 @@ class Dashboard extends Component {
             <h4>
               <b>Login Successful!</b>
               <p className="flow-text grey-text text-darken-1">
-                You are logged in as {user.name}
+              <strong>{user.name}</strong>, You are logged in as {user.role}!
               </p>
             </h4>
             <button
