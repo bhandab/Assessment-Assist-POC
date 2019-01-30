@@ -32,7 +32,8 @@ router.post("/register", (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        role:req.body.role
       });
 
       // Hash password before saving in database
@@ -65,6 +66,7 @@ router.post("/login", (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
+  const role = req.body.role;
 
   // Find user by email
   User.findOne({ email }).then(user => {
@@ -80,7 +82,8 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           id: user.id,
-          name: user.name
+          name: user.name,
+          role: user.role
         };
 
         // Sign token
